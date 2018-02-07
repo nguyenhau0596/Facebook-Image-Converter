@@ -1,0 +1,29 @@
+===2/5/2018===
+- Jobs:
+	+ Init project.
+	+ Init simple UI.
+	+ Open dialog windows to select files or folder.
+- Todos:
+	+ Load images.
+
+===2/6/2018===
+- Jobs:
+	+ Load selected images by dialog windows.
+	+ Store them in an array.
+	+ Convert selected images to PNG format.
+	+ Display number of selected images.
+- Todos:
+	+ Load images of selected folder.
+	+ Display selected images by list images on UI.
+	+ Display process bar when converting images.
+	
+===2/7/2018===
+- Jobs:
+	+ Load images of selected folder.
+	+ Update layout.
+	+ Add progress bar.
+- Todos:
+	+ Display selected images by list images on UI.
+	+ Select output path.
+	+ Select output format.
+	+ Select output resolution.

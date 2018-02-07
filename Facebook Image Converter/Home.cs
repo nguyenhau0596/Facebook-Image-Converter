@@ -40,8 +40,22 @@ namespace Facebook_Image_Converter
                     {
                         using (myStream)
                         {
-                            // Insert code to read the stream here.
-                            selected_files = openFileDialog1.FileNames;
+                            // Insert code to read the stream here.                            
+                            String[] list_temp_files = openFileDialog1.FileNames;
+                            List < String > list = new List<String>();
+
+                            //check image files
+                            for (int i = 0; i < list_temp_files.Length; i++)
+                            {
+                                var extension = Path.GetExtension(list_temp_files[i]);
+                                if (extension.Contains("jpg") || extension.Contains("png")
+                                    || extension.Contains("bmp"))
+                                    list.Add(list_temp_files[i]);
+                            }
+
+                            selected_files = list.ToArray();
+
+
                             labelTotalImages.Text = selected_files.Length.ToString() 
                                 + " item"+(selected_files.Length>1?"s":"")+" selected.";
                         }
@@ -65,6 +79,22 @@ namespace Facebook_Image_Converter
                     using (openFileDialog1)
                     {
                         // Insert code to read the stream here.
+                        String [] list_temp_files = Directory.GetFiles(openFileDialog1.SelectedPath);
+                        List<String> list = new List<String>();
+
+                        //check image files
+                        for (int i = 0; i < list_temp_files.Length; i++)
+                        {
+                            var extension = Path.GetExtension(list_temp_files[i]);
+                            if (extension.Contains("jpg")|| extension.Contains("png")
+                                || extension.Contains("bmp"))
+                                list.Add(list_temp_files[i]);
+                        }
+
+                        selected_files = list.ToArray();
+                                                
+                        labelTotalImages.Text = selected_files.Length.ToString()
+                                + " item" + (selected_files.Length > 1 ? "s" : "") + " selected.";
                     }
                 }
                 catch (Exception ex)
@@ -83,12 +113,32 @@ namespace Facebook_Image_Converter
 
         private void Convert(object sender, EventArgs e)
         {
-            for (var i = 0; i < selected_files.Length; i++)
+            try
             {
-                var png = Image.FromFile(selected_files[i]);
-                
-                png.Save("ouput"+i.ToString()+".png", ImageFormat.Png);
+                progressBar1.Minimum = 1;
+                progressBar1.Maximum = selected_files.Length;
+                progressBar1.Value = 1;
+                progressBar1.Step = 1;
+
+                for (var i = 0; i < selected_files.Length; i++)
+                {
+                    var png = Image.FromFile(selected_files[i]);
+
+                    png.Save("ouput" + i.ToString() + ".png", ImageFormat.Png);
+                    progressBar1.PerformStep();
+                }
+
+                MessageBox.Show("Done :)))");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void labelTotalImages_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
