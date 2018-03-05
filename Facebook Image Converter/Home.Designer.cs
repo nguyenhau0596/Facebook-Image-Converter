@@ -45,6 +45,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonSelectOutputFolder = new System.Windows.Forms.Button();
+            this.labelOutputFolder = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,21 +77,21 @@
             // openFilesToolStripMenuItem
             // 
             this.openFilesToolStripMenuItem.Name = "openFilesToolStripMenuItem";
-            this.openFilesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.openFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openFilesToolStripMenuItem.Text = "Open files";
             this.openFilesToolStripMenuItem.Click += new System.EventHandler(this.openFilesClick);
             // 
             // openFolderToolStripMenuItem
             // 
             this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
-            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openFolderToolStripMenuItem.Text = "Open folder";
             this.openFolderToolStripMenuItem.Click += new System.EventHandler(this.openFolderClick);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.closeApp);
             // 
@@ -171,6 +173,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.labelOutputFolder);
+            this.panel2.Controls.Add(this.buttonSelectOutputFolder);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(326, 88);
             this.panel2.Name = "panel2";
@@ -187,6 +191,25 @@
             this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Output";
+            // 
+            // buttonSelectOutputFolder
+            // 
+            this.buttonSelectOutputFolder.Location = new System.Drawing.Point(16, 31);
+            this.buttonSelectOutputFolder.Name = "buttonSelectOutputFolder";
+            this.buttonSelectOutputFolder.Size = new System.Drawing.Size(88, 28);
+            this.buttonSelectOutputFolder.TabIndex = 1;
+            this.buttonSelectOutputFolder.Text = "Output";
+            this.buttonSelectOutputFolder.UseVisualStyleBackColor = true;
+            this.buttonSelectOutputFolder.Click += new System.EventHandler(this.buttonSelectOutputFolder_Click);
+            // 
+            // labelOutputFolder
+            // 
+            this.labelOutputFolder.AutoSize = true;
+            this.labelOutputFolder.Location = new System.Drawing.Point(110, 35);
+            this.labelOutputFolder.Name = "labelOutputFolder";
+            this.labelOutputFolder.Size = new System.Drawing.Size(26, 20);
+            this.labelOutputFolder.TabIndex = 2;
+            this.labelOutputFolder.Text = "C:\\";
             // 
             // Home
             // 
@@ -233,6 +256,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelOutputFolder;
+        private System.Windows.Forms.Button buttonSelectOutputFolder;
     }
 }
 

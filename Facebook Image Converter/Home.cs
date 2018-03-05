@@ -19,6 +19,7 @@ namespace Facebook_Image_Converter
         public Home()
         {
             InitializeComponent();
+
         }
 
         private void openFilesClick(object sender, EventArgs e)
@@ -119,12 +120,12 @@ namespace Facebook_Image_Converter
                 progressBar1.Maximum = selected_files.Length;
                 progressBar1.Value = 1;
                 progressBar1.Step = 1;
-
+                
                 for (var i = 0; i < selected_files.Length; i++)
                 {
                     var png = Image.FromFile(selected_files[i]);
 
-                    png.Save("ouput" + i.ToString() + ".png", ImageFormat.Png);
+                    png.Save(labelOutputFolder.Text +"\\" + "ouput" + i.ToString() + ".png", ImageFormat.Png);
                     progressBar1.PerformStep();
                 }
 
@@ -139,6 +140,27 @@ namespace Facebook_Image_Converter
         private void labelTotalImages_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSelectOutputFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (openFileDialog1)
+                    {
+                        // Insert code to read the stream here.                        
+                        labelOutputFolder.Text = openFileDialog1.SelectedPath;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read folder from disk. Original error: " + ex.Message);
+                }
+            }
         }
     }
 }

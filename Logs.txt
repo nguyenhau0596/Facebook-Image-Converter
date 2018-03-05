@@ -27,3 +27,12 @@
 	+ Select output path.
 	+ Select output format.
 	+ Select output resolution.
+	
+===3/5/2018===
+- Jobs:
+	+ Select output path.
+- Todos:
+	+ Display selected images by list images on UI.	
+	+ Select output format.
+	+ Select output resolution.
+	+ Add mode auto open output folder after converting.
